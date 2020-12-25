@@ -1,0 +1,10 @@
+term matrix1[] = new term[9];
+        matrix1[0]=new term(6,6,8);
+        matrix1[1]=new term(0,0,15);
+        matrix1[2]=new term(0,3,22);
+        matrix1[3]=new term(0,5,-15);
+        matrix1[4]=new term(1,1,11);
+        matrix1[5]=new term(1,2,3);
+        matrix1[6]=new term(2,3,-6);
+        matrix1[7]=new term(4,0,91);
+        matrix1[8]=new term(5,2,28);

@@ -1,0 +1,54 @@
+class circular_queue {
+    int MAX_ARRAY = 10;
+    int rear = MAX_ARRAY - 1;
+    int front = MAX_ARRAY - 1;
+
+    element[] queueArray;
+
+    public circular_queue() {
+        queueArray = new element[MAX_ARRAY];
+    }
+
+    public void push(int val) {
+        if ((rear + 1) % MAX_ARRAY != front) {
+            rear = (rear + 1) % MAX_ARRAY;
+            queueArray[rear] = new element(val);
+        } else {
+            doubleArray(val);
+        }
+
+    }
+
+    public void pop() {
+        front = (front + 1) % MAX_ARRAY;
+        System.out.println(queueArray[front].value);
+    }
+
+    public void doubleArray(int val){
+        int i=-1;
+        element [] newArray = new element[MAX_ARRAY*2];
+
+        while(front!=rear){
+            front=(front+1)%MAX_ARRAY;
+            i++;
+
+            newArray[i]=new element(queueArray[front].value);
+        }
+
+        i++;
+        newArray[i]=new element(val);
+
+        MAX_ARRAY*=2;
+        front=MAX_ARRAY-1;
+        rear=i;
+        queueArray=newArray;
+
+    }
+}
+class element {
+    int value;
+
+    public element (int val){
+        value=val;
+    }
+}

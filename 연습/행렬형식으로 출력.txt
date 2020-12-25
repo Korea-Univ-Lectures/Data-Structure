@@ -1,0 +1,17 @@
+for (i = 0; i < header->row; i++) {
+		for (j = 0;  j< header->col; j++) {
+			if (currentPrint == NULL) {
+				printf("0");
+			}
+			else {
+				if (currentPrint->row == (i + 1) && currentPrint->col == (j + 1)) {
+					printf("%d",currentPrint->val);
+					currentPrint = currentPrint->next;
+				}
+				else {
+					printf("0");
+				}
+			}
+		}
+		printf("\n");
+	}

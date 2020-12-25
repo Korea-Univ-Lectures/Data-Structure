@@ -1,0 +1,71 @@
+public class Main {
+
+    public static void main(String[] args) {
+        circular_linkedList cirlink1 = new circular_linkedList();
+
+        for(int i=0;i<10;i++){
+            cirlink1.add(i);
+        }
+        cirlink1.printList();
+
+        cirlink1.flip();
+        cirlink1.printList();
+    }
+}
+class circular_linkedList{
+    link_term head=null;
+    link_term current=null;
+    link_term next=null;
+
+    int length=0;
+
+    public circular_linkedList(){
+            head = new link_term(-1);
+            current=head;
+    }
+
+    public void add (int val){
+        length++;
+
+            next = new link_term(val);
+            next.next=head;
+            current.next=next;
+            current=current.next;
+
+    }
+
+    public void printList(){
+        link_term print_current=head.next;
+
+        while(print_current!=head){
+            System.out.println(print_current.value);
+            print_current=print_current.next;
+        }
+    }
+    public void flip(){
+        link_term prev = head;
+        link_term cur = prev.next;
+        link_term nex = cur.next;
+
+        cur.next=prev;
+        prev=cur;
+        cur=nex;
+        nex=nex.next;
+
+        while(prev!=head){
+            cur.next=prev;
+            prev=cur;
+            cur=nex;
+            nex=nex.next;
+        }
+    }
+}
+
+class link_term {
+    int value;
+    link_term next;
+    public link_term (int val){
+        value=val;
+        next=this;
+    }
+}
